@@ -2,7 +2,7 @@ var Sequelize = require("Sequelize");
 
 var connection;
 if (process.env.JAWSDB_URL) {
-	connection = new Sequelize(process.env.JAWSDB_URL , {dialect: "mysql"});
+	connection = new Sequelize(process.env.JAWSDB_URL);
 }else{
 	connection = new Sequelize("sqlburgers_db", "root", "", {
 	  host: "localhost",
