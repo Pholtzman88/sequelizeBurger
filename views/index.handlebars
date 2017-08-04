@@ -1,0 +1,62 @@
+
+	<!--header section -->
+	<div class="jumbotron">	
+		<form action="burgers/create" method="POST">
+			<input type="image" id="burgerImg" src="/assets/images/burger.png"/>
+			<input placeholder="create a burger" id="burgerInput" name="name"></input>
+		</form>
+
+		<a id="github" href="https://github.com/Pholtzman88/sequelizeBurger">GitHub Repo</a>
+	</div>
+	<!--main body-->
+	<div class="container">
+	<!--top row titles -->
+	<div class="row top-row">
+		<div class="col-sm-6 title">
+			<h2>Available Burgers</h2>
+		</div>
+		<div class="col-sm-6 title title-right">
+			<h2>Devoured Burgers</h2>
+		</div>
+	</div>
+	<!--middle row displays burgers-->
+	<div class="row middle-row">
+		<!--available burgers section -->
+		<div class="col-sm-6">
+			{{#each burgers}}
+			{{#unless this.devoured}}
+				<div class="burger-container row" id="l{{this.id}}">
+					<div class="panel-body float-left burger-id-container">
+	    				<h4 class="burger-id">{{this.id}}</h4>
+	  				</div>
+						<h3 class="float-left">{{this.burger_name}}</h3>
+						<form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+							<button class="btn btn-primary float-left">DEVOUR!</button>
+						</form>
+				</div>
+				{{/unless}}
+			{{/each}}
+		</div>	
+		<!--devoured burgers section -->
+		<div class="col-sm-6 right">
+			{{#each burgers}}
+			{{#if this.devoured}}
+				<div class="burger-container row " id="r{{this.id}}">
+					<div class="panel-body float-left burger-id-container">
+	    				<h4 class="burger-id faded">{{this.id}}</h4>
+	  				</div>
+					<h3 class="float-left faded">{{this.burger_name}}</h3>
+				</div>
+				{{/if}}
+			{{/each}}
+		</div>	
+	</div>	
+
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+</div>
