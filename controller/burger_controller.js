@@ -10,7 +10,6 @@ router.get("/",function(req,res){
 
 //landing page - inserts all burgers into handlebars
 router.get("/burgers",function(req,res){
-	Burger.sync();
 	Burger.findAll({
 	}).then(function(data){
 		res.render("index", {burgers: data});
@@ -19,7 +18,6 @@ router.get("/burgers",function(req,res){
 
 //handles creating new burger in db and then redirects to burgers page
 router.post("/burgers/create", function(req,res){
-	Burger.sync();
 	Burger.create({
 		burger_name: req.body.name,
 		devoured: false
@@ -29,7 +27,6 @@ router.post("/burgers/create", function(req,res){
 });
 //handles updating devoured boolean in mysql then redirects to burgers page
 router.put("/burgers/update/:id",function(req,res){
-	Burger.sync();
 	Burger.update({
 		devoured: true
 	},{

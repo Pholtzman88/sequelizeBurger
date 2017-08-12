@@ -1,6 +1,6 @@
 CREATE DATABASE sqlburgers_db;
 
-USE burgers_db;
+USE sqlburgers_db;
 
 CREATE TABLE burgers (
 	id INTEGER NOT NULL AUTO_INCREMENT,
